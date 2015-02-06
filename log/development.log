@@ -486,3 +486,30 @@ Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-02-06 11:55:
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-06 11:55:03 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-06 14:28:51 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 494ms (Views: 483.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-02-06 14:28:51 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-06 14:28:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-06 14:28:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-06 14:28:51 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-06 14:28:53 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-02-06 14:28:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-06 14:28:53 -0500
