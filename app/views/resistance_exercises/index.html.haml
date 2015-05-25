@@ -1,0 +1,27 @@
+%h1 Listing resistance_exercises
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Resistance
+      %th Repetitions
+      %th Sets
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @resistance_exercises.each do |resistance_exercise|
+      %tr
+        %td= resistance_exercise.name
+        %td= resistance_exercise.resistance
+        %td= resistance_exercise.repetitions
+        %td= resistance_exercise.sets
+        %td= link_to 'Show', resistance_exercise
+        %td= link_to 'Edit', edit_resistance_exercise_path(resistance_exercise)
+        %td= link_to 'Destroy', resistance_exercise, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resistance exercise', new_resistance_exercise_path
