@@ -1,7 +1,7 @@
 class ResistanceExercisesController < ApplicationController
   before_action :set_resistance_exercise, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @resistance_exercises = ResistanceExercise.all
