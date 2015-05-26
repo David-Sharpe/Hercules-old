@@ -1,4 +1,15 @@
-%h1 Listing resistance_exercises
+%html{'ng-app'=>'ResistanceExercise'}
+  %head
+    = javascript_include_tag "resistance_exercises.js"
+	
+  %h1 Listing resistance_exercises
+
+  %div{ng_controller: 'ResistanceExerciseController as resistanceExercise'}
+    %div{'ng-show' => 'resistanceExercise.barg == null'}
+      %p It's null Jim
+    %div{'ng-repeat' => 'exercise in resistanceExercise.barg'}
+      {{ 1 + 2 }}
+      {{exercise.name}}
 
 %table
   %thead
