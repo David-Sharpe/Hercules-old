@@ -5,11 +5,10 @@
   %h1 Listing resistance_exercises
 
   %div{ng_controller: 'ResistanceExerciseController as resistanceExercise'}
-    %div{'ng-show' => 'resistanceExercise.barg == null'}
-      %p It's null Jim
-    %div{'ng-repeat' => 'exercise in resistanceExercise.barg'}
-      {{ 1 + 2 }}
-      {{exercise.name}}
+    %div{'ng-show' => 'resistanceExercise.title !== null'}
+      %p It's not null
+    %div{'ng-repeat' => 'exercise in resistanceExercise.exercises'}
+      {{exercise.name}} {{exercise.resistance}}
 
 %table
   %thead
