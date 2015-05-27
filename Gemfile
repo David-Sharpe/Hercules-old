@@ -38,10 +38,10 @@ end
 
 group :development, :test do
   gem 'pry-debugger'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.0'
   gem 'capybara', '~> 2.4'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'poltergeist', '~> 1.5'

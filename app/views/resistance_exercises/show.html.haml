@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @resistance_exercise.name
+%p
+  %b Resistance:
+  = @resistance_exercise.resistance
+%p
+  %b Repetitions:
+  = @resistance_exercise.repetitions
+%p
+  %b Sets:
+  = @resistance_exercise.sets
+
+= link_to 'Edit', edit_resistance_exercise_path(@resistance_exercise)
+\|
+= link_to 'Back', resistance_exercises_path
