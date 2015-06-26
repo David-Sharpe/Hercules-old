@@ -1,1 +1,1 @@
-json.extract! @resistance_exercise, :id, :name, :resistance, :repetitions, :sets, :created_at, :updated_at
+json.extract! @resistance_exercise, :completed, :id, :name, :resistance, :unit, :repetitions, :sets, :created_at, :updated_at

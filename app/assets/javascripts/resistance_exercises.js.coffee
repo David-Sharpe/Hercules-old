@@ -7,7 +7,6 @@ app = angular.module 'ResistanceExercise', []
 app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -> 
   workout = @
   workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
-  @barg = [{"name": "Jimmy"}]
   $http.get('/resistance_exercises.json').success((data) ->
     $log.log "Success"
     workout.exercises = data
@@ -15,5 +14,15 @@ app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -
   ).error( (data) ->
     return
   )
+  @save = (data) ->
+    $log.log "Saving " + JSON.stringify(data)
+    return
+    $http.put(data.url, '{"resistance_exercise": "id": 1, "Name": "Bench Press"}}').success((data) ->
+      $log.log "Successful save"
+    ).error((data) ->
+      $log.log "Error"
+      return
+    )
+  return workout
 ]
 return

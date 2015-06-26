@@ -1,4 +1,6 @@
 class ResistanceExercisesController < ApplicationController
+  protect_from_forgery with: :null_session
+  
   before_action :set_resistance_exercise, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :json
@@ -42,6 +44,6 @@ class ResistanceExercisesController < ApplicationController
     end
 
     def resistance_exercise_params
-      params.require(:resistance_exercise).permit(:name, :resistance, :repetitions, :sets)
+      params.require(:resistance_exercise).permit(:name, :resistance, :repetitions, :sets, :unit, :completed)
     end
 end
