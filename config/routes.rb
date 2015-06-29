@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :resistance_exercises
-
   devise_for :users
   root 'static_pages#home'
 
