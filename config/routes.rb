@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'exercise_editor/resistance'
+
+  get 'exercise_editor/interval'
+
+  get 'exercise_editor/endurance'
+
   get 'resistance_exercises' => 'resistance_exercises#get'
   
   post 'resistance_exercises' => 'resistance_exercises#post'
