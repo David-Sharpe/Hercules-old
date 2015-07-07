@@ -4,7 +4,7 @@
 	
   %body
     %h1 Listing resistance_exercises
-    %div{:id => headers}  <b>Completed Exercise Reps Weight </b>
+    %div{:id => headers, :class => "header"}  Completed Exercise Reps Weight
     %div{ng_controller: 'ResistanceExerciseController as resistanceExercise'}
     
       %div{'ng-repeat' => 'exercise in resistanceExercise.exercises'}
