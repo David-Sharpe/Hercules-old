@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525032550) do
+ActiveRecord::Schema.define(version: 20150701015957) do
 
   create_table "resistance_exercises", force: true do |t|
     t.string   "name"
     t.decimal  "resistance"
+    t.string   "unit"
     t.integer  "repetitions"
     t.integer  "sets"
     t.datetime "created_at"

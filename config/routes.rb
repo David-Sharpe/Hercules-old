@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :resistance_exercises
+  get 'exercise_editor/resistance'
+
+  get 'exercise_editor/interval'
+
+  get 'exercise_editor/endurance'
+
+  get 'resistance_exercises' => 'resistance_exercises#get'
+  
+  post 'resistance_exercises' => 'resistance_exercises#post'
+
+  put 'resistance_exercises' => 'resistance_exercises#put'
+
+  delete 'resistance_exercises' => 'resistance_exercises#delete'
 
   devise_for :users
   root 'static_pages#home'

@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+.header {
+  font-weight: bold;
+  font-size: 1em;
+  display: table;
+}
+
+.cell {
+  display: inline;
+  width: 100px;
+  border: none;
+}
+
+.completed {
+  display: inline;
+}
+
+.row {
+  display: table;
+  float: left;
+}
+
+.row:nth-child(even) {
+  background: blue;
+}
