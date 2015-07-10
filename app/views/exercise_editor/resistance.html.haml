@@ -4,15 +4,26 @@
 	
   %body
     %h1 Listing resistance_exercises
-    %div{:id => headers, :class => "header"}  Completed Exercise Reps Weight
-    %div{ng_controller: 'ResistanceExerciseController as resistanceExercise'}
+    %div{id: headers, class: "header"}  
+      Completed Exercise Weight Units Reps Sets 
+
+    %form{name: 'resistanceForm', ng_controller: 'ResistanceExerciseController as resistanceExercise',
+    :novalidate => true}
     
-      %div{'ng-repeat' => 'exercise in resistanceExercise.exercises'}
-        = check_box_tag 'completed', false, false, 'ng-model' => 'exercise.completed'
-        %input{'ng-model' => 'exercise.name'}
-        %input{'ng-model' => 'exercise.resistance'}
-        %input{'ng-model' => 'exercise.unit'}
-        %input{'ng-model' => 'exercise.repetitions'}
-        %input{'ng-model' => 'exercise.sets'}
-        = submit_tag 'save', 'ng-click' => 'resistanceExercise.save(exercise)'
-      
+      %div{'ng-repeat' => 'exercise in resistanceExercise.exercises', class: 'row'}
+        .completed
+          = check_box_tag 'completed', false, false, 'ng-model' => 'exercise.completed'
+        .cell
+          %input{'ng-model' => 'exercise.name'}
+        .cell
+          %input{'ng-model' => 'exercise.resistance', required: true}
+        .cell
+          %input{'ng-model' => 'exercise.unit'}
+        .cell
+          %input{'ng-model' => 'exercise.repetitions'}
+        .cell
+          %input{'ng-model' => 'exercise.sets'}
+        .cell
+          = submit_tag 'save', 'ng-click' => 'resistanceExercise.save(exercise)'
+      %div
+        {{resistanceForm.$valid}}        
