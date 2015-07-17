@@ -1,9 +1,13 @@
 require 'JSON'
-
+module Api
 class ResistanceExercisesController < ApplicationController
   protect_from_forgery with: :null_session
   
-  def get
+  def show
+    render json: '{"result":5}'
+  end
+  
+  def index
     #if params[:id]
     #  render json: ResistanceExercise.find(params[:id])
     #else
@@ -13,7 +17,7 @@ class ResistanceExercisesController < ApplicationController
     render json: ResistanceExercise.find(params[:id]) unless params[:id].nil?
   end
 
-  def post
+  def create
     exercise = ResistanceExercise.new(resistance_params)
     #binding.remote_pry
     #exercise.update(resis)
@@ -22,7 +26,7 @@ class ResistanceExercisesController < ApplicationController
     end
   end
 
-  def put
+  def update
     
     local = params[:resistance_exercise]
     id = local[:id]
@@ -33,11 +37,12 @@ class ResistanceExercisesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
   end
   
   private
   def resistance_params
     params.require(:resistance_exercise).permit(:name, :resistance, :unit, :repetitions, :sets)
   end
+end
 end

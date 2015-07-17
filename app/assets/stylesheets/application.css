@@ -37,3 +37,7 @@
 .row:nth-child(even) {
   background: blue;
 }
+
+.row:nth-child(odd) {
+  background: grey;
+}
