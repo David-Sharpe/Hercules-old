@@ -14,6 +14,12 @@ class ResistanceExercisesController < ApplicationController
   end
 
   def post
+    exercise = ResistanceExercise.new(resistance_params)
+    #binding.remote_pry
+    #exercise.update(resis)
+    if exercise.save
+      render json: exercise, status: 201, location: resistance_exercise_url(exercise)
+    end
   end
 
   def put
