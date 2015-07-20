@@ -17,7 +17,8 @@ app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -
   @save = (data) ->
     $log.log "data.url = " + data.url
     $log.log "Saving " + JSON.stringify(data)
-    $http.put('/resistance_exercises.json', JSON.stringify(data)).success((data) ->
+    $log.log '/resistance_exercises/' + data.id + '.json'
+    $http.put('/resistance_exercises/' + data.id + '.json', JSON.stringify(data)).success((data) ->
       $log.log "Successful save"
     ).error((data) ->
       $log.log "Error"
