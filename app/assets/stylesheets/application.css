@@ -29,8 +29,18 @@
   display: inline;
 }
 
+.new {
+  float: left;
+  display: inline;
+}
+
 .row {
   display: table;
+  float: left;
+}
+
+.row input {
+  display: inline;
   float: left;
 }
 
