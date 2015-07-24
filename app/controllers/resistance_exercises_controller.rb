@@ -30,6 +30,8 @@ class ResistanceExercisesController < ActionController::Base
 
   def destroy
     ResistanceExercise.find(params[:id]).destroy
+    head 204
+    
   end
   
   private
