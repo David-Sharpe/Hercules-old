@@ -17,12 +17,32 @@ app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -
   @save = (data) ->
     $log.log "data.url = " + data.url
     $log.log "Saving " + JSON.stringify(data)
-    $http.put('/resistance_exercises.json', JSON.stringify(data)).success((data) ->
+    $http.put('/resistance_exercises/' + data.id + '.json', JSON.stringify(data)).success((data) ->
       $log.log "Successful save"
     ).error((data) ->
       $log.log "Error"
       return
     )
+  @delete = (data) ->
+    $log.log "Deleting" + JSON.stringify(data)
+    $http.delete('/resistance_exercises/' + data.id).success((data) ->
+      $log.log "Deleted"
+      workout.exercises.splice(data.index, 1)
+    ).error((data) ->
+      $log.log "Error"
+      return
+    )
+  @create = ->
+    $log.log 'Posting'
+    $http.post('/resistance_exercises.json', '{"name":""}').success((data) ->
+      $log.log data
+      workout.exercises.push(data)
+    ).error((data) ->
+        $log.log "Error"
+        return
+    )
+  
+  
   return workout
 ]
 return

@@ -6,14 +6,10 @@ Rails.application.routes.draw do
 
   get 'exercise_editor/endurance'
 
-  get 'resistance_exercises' => 'resistance_exercises#get'
+  #constraints subdomain: 'api.hercules' do
+  resources :resistance_exercises, except: [:new, :edit]
+  #end
   
-  post 'resistance_exercises' => 'resistance_exercises#post'
-
-  put 'resistance_exercises' => 'resistance_exercises#put'
-
-  delete 'resistance_exercises' => 'resistance_exercises#delete'
-
   devise_for :users
   root 'static_pages#home'
 

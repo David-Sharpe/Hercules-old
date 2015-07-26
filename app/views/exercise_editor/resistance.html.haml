@@ -25,5 +25,8 @@
           %input{'ng-model' => 'exercise.sets'}
         .cell
           = submit_tag 'save', 'ng-click' => 'resistanceExercise.save(exercise)'
-      %div
-        {{resistanceForm.$valid}}        
+        .cel
+          = submit_tag 'delete', 'ng-click' => 'resistanceExercise.delete(exercise)'
+      
+      .new
+        = submit_tag 'new', 'ng-click' => 'resistanceExercise.create()'  
