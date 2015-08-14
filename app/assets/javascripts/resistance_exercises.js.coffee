@@ -3,12 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 app = angular.module 'ResistanceExercise', []
-
+user_id = gon.user_id
 app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -> 
   workout = @
   workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
-  $http.get('/resistance_exercises.json').success((data) ->
-    $log.log "Success"
+  $http.get('/resistance_exercises.json?user_id='+user_id).success((data) ->
+    $log.log "Success" + " " + user_id
     workout.exercises = data
     return
   ).error( (data) ->
