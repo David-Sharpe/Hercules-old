@@ -4,14 +4,30 @@
 
 app = angular.module 'ResistanceExercise', []
 user_id = gon.user_id
+app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) ->
+  user_workouts = @
+  $http.get('/resistance_workouts.json?user_id=' + user_id).success((data) ->
+    user_workouts.workouts = data
+    $log.log user_id
+    $log.log "workouts = " + user_workouts.workouts.id
+    return
+  ).error((data) ->
+    return
+  )
+  @click = (data) ->
+    $log.log 'data'
+    $log.log user_workouts.workouts
+    return
+    
+  return user_workouts
+]
 app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -> 
   workout = @
   workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
-  $http.get('/resistance_exercises.json?user_id='+user_id).success((data) ->
-    $log.log "Success" + " " + user_id
+  $http.get('/resistance_exercises.json?workout_id='+ 1).success((data) ->
     workout.exercises = data
     return
-  ).error( (data) ->
+  ).error((data) ->
     return
   )
   @save = (data) ->

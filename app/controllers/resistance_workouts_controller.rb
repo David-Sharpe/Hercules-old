@@ -10,11 +10,12 @@ class ResistanceWorkoutsController < ApplicationController
   end
   
   def show
-    
+    render json: (ResistanceWorkout.find_by id:params[:id], user_id: params[:user_id])
   end
   
   def create
-    
+    workout = ResistanceWorkout.new(params[:user_id])
+    render json: workout
   end
   
   def destroy

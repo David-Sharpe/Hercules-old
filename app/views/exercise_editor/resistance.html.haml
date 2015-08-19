@@ -4,10 +4,14 @@
 	
   %body
     %h1 Listing resistance_exercises
+    %div{'ng-controller' => 'ResistanceWorkoutsController as resistanceWorkout'}
+      %select{'ng-model'=>'resistanceworkout.workouts', 'name' => 'selectedWorkout'}
+        %option{'ng-repeat' => 'workout in resistanceWorkout.workouts'}= '{{workout}}'
+      = submit_tag 'test', 'ng-click' => 'resistanceWorkout.click()'
     %div{id: headers, class: "header"}  
       Completed Exercise Weight Units Reps Sets 
 
-    %form{name: 'resistanceForm', ng_controller: 'ResistanceExerciseController as resistanceExercise',
+    %form{name: 'resistanceForm', 'ng-controller' => 'ResistanceExerciseController as resistanceExercise',
     :novalidate => true}
     
       %div{'ng-repeat' => 'exercise in resistanceExercise.exercises', class: 'row'}

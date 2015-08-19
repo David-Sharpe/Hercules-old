@@ -8,7 +8,7 @@ class ResistanceExercisesController < ActionController::Base
   end
   
   def index
-   render json: ResistanceExercise.all 
+   render json: ResistanceExercise.where(workout_id: params[:workout_id])
   end
 
   def create
