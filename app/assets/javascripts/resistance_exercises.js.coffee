@@ -4,8 +4,10 @@
 
 app = angular.module 'ResistanceExercise', []
 user_id = gon.user_id
+workout_id = 1
 app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) ->
   user_workouts = @
+  selected_workout = null
   $http.get('/resistance_workouts.json?user_id=' + user_id).success((data) ->
     user_workouts.workouts = data
     $log.log user_id
@@ -15,8 +17,8 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
     return
   )
   @click = (data) ->
-    $log.log 'data'
-    $log.log user_workouts.workouts
+    workout_id = selected_workout
+    $log.log selected_workout
     return
     
   return user_workouts
@@ -24,7 +26,7 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
 app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -> 
   workout = @
   workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
-  $http.get('/resistance_exercises.json?workout_id='+ 1).success((data) ->
+  $http.get('/resistance_exercises.json?workout_id='+ workout_id).success((data) ->
     workout.exercises = data
     return
   ).error((data) ->
