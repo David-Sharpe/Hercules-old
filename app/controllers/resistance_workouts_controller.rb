@@ -5,7 +5,8 @@ class ResistanceWorkoutsController < ApplicationController
   before_action :require_user_id
   
   def index
-    render json: (ResistanceWorkout.find_by user_id: params[:user_id])
+    workouts = ResistanceWorkout.where user_id: params[:user_id]
+    render json: (workouts)
     
   end
   
