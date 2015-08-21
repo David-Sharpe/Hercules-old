@@ -7,18 +7,16 @@ user_id = gon.user_id
 workout_id = 1
 app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) ->
   user_workouts = @
-  selected_workout = null
+  @selected_workout = null
   $http.get('/resistance_workouts.json?user_id=' + user_id).success((data) ->
     user_workouts.workouts = data
-    $log.log user_id
-    $log.log "workouts = " + user_workouts.workouts.id
+    @selected_workout = user_workouts[0]
     return
   ).error((data) ->
     return
   )
   @click = (data) ->
-    workout_id = selected_workout
-    $log.log selected_workout
+    workout_id = @selected_workout.id
     return
     
   return user_workouts
