@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 
+gem 'gon', '~> 6.0'
+
 gem 'angularjs-rails'
 
 group :development do

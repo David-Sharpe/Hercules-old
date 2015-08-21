@@ -3,15 +3,31 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 app = angular.module 'ResistanceExercise', []
-
+user_id = gon.user_id
+workout_id = 1
+app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) ->
+  user_workouts = @
+  @selected_workout = null
+  $http.get('/resistance_workouts.json?user_id=' + user_id).success((data) ->
+    user_workouts.workouts = data
+    @selected_workout = user_workouts[0]
+    return
+  ).error((data) ->
+    return
+  )
+  @click = (data) ->
+    workout_id = @selected_workout.id
+    return
+    
+  return user_workouts
+]
 app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -> 
   workout = @
   workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
-  $http.get('/resistance_exercises.json').success((data) ->
-    $log.log "Success"
+  $http.get('/resistance_exercises.json?workout_id='+ workout_id).success((data) ->
     workout.exercises = data
     return
-  ).error( (data) ->
+  ).error((data) ->
     return
   )
   @save = (data) ->
