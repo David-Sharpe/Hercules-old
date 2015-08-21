@@ -8,7 +8,6 @@
     %form{name: 'resistanceForm', 'ng-controller' => 'ResistanceWorkoutsController as resistanceWorkout',
     :novalidate => true}
       %select{'name' => 'selected_workout', 'ng-model'=>'resistanceWorkout.selected_workout', 'ng-options' => 'workout.id for workout in resistanceWorkout.workouts track by workout.id', 'ng-change' => 'resistanceWorkout.load_workout()'}
-      = submit_tag 'test', 'ng-click' => 'resistanceWorkout.click()'
       %div{id: headers, class: "header"}  
         Completed Exercise Weight Units Reps Sets
       %div{'ng-repeat' => 'exercise in resistanceWorkout.exercises', class: 'row'}

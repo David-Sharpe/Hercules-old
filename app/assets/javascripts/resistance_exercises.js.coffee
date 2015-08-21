@@ -15,13 +15,10 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
   ).error((data) ->
     return
   )
-  @click = (data) ->
-    workout_id = @selected_workout.id
-    user_workouts.load_workout()
-    return
 
   workout = @
-  @load_workout = ->
+  @load_workout = (data) ->
+    workout_id = @selected_workout.id
     workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
     $http.get('/resistance_exercises.json?workout_id='+ workout_id).success((data) ->
       workout.exercises = data
