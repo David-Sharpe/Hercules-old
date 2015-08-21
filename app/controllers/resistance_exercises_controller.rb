@@ -36,6 +36,6 @@ class ResistanceExercisesController < ActionController::Base
   
   private
   def resistance_params
-    params.require(:resistance_exercise).permit(:name, :resistance, :unit, :repetitions, :sets)
+    params.require(:resistance_exercise).permit(:name, :resistance, :unit, :repetitions, :sets, :workout_id)
   end
 end
