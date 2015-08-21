@@ -17,19 +17,19 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
   )
   @click = (data) ->
     workout_id = @selected_workout.id
+    user_workouts.load_workout()
     return
-    
-  return user_workouts
-]
-app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -> 
+
   workout = @
-  workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
-  $http.get('/resistance_exercises.json?workout_id='+ workout_id).success((data) ->
-    workout.exercises = data
-    return
-  ).error((data) ->
-    return
-  )
+  @load_workout = ->
+    workout.exercises = [{'name': 'Bench'}, {'name': 'Squat'}]
+    $http.get('/resistance_exercises.json?workout_id='+ workout_id).success((data) ->
+      workout.exercises = data
+      $log.log workout.exercises
+      return
+    ).error((data) ->
+      return
+    )
   @save = (data) ->
     $log.log "data.url = " + data.url
     $log.log "Saving " + JSON.stringify(data)
@@ -52,13 +52,12 @@ app.controller 'ResistanceExerciseController', ['$http', '$log', ($http, $log) -
     $log.log 'Posting'
     $http.post('/resistance_exercises.json', '{"name":""}').success((data) ->
       $log.log data
+      data.workout_id = workout_id
       workout.exercises.push(data)
     ).error((data) ->
         $log.log "Error"
         return
     )
-  
-  
   return workout
 ]
 return
