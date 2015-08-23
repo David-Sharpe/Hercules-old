@@ -6,9 +6,7 @@ gem 'haml-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', ' ~> 4.1.8'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3',                   group: :development
-gem 'pg',                  group: :production
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,6 +32,7 @@ gem 'gon', '~> 6.0'
 gem 'angularjs-rails'
 
 group :development do
+  gem 'sqlite3'
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -49,7 +48,11 @@ group :test do
   gem 'capybara', '~> 2.4'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'poltergeist', '~> 1.5'
-  
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
