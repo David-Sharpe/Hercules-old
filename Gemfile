@@ -4,7 +4,7 @@ gem 'haml'
 gem 'haml-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', ' ~> 4.1.8'
+gem 'rails', ' 4.2.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -31,6 +31,7 @@ gem 'gon', '~> 6.0'
 gem 'angularjs-rails'
 
 group :development do
+  gem 'web-console', '~> 2.0'
   gem 'sqlite3'
   gem 'spring'
   gem 'better_errors'
@@ -39,7 +40,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-debugger'
+  #gem 'pry-debugger'
   gem 'rspec-rails', '~> 3.0'
 end
 
