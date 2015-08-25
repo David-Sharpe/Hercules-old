@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
 gem 'haml'
 gem 'haml-rails'
 
@@ -50,10 +49,6 @@ group :test do
   gem 'poltergeist', '~> 1.5'
 end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
