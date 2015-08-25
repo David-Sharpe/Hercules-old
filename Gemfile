@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.2.3'
 gem 'haml'
 gem 'haml-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', ' ~> 4.1.8'
+gem 'rails', ' ~> 4.2.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -40,7 +40,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-debugger'
+  #gem 'pry-debugger'
   gem 'rspec-rails', '~> 3.0'
 end
 
