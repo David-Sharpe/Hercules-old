@@ -27,6 +27,16 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
     ).error((data) ->
       return
     )
+    
+  @create_workout = (data) ->
+    $http.post('/resistance_workouts.json?user_id=' + user_id).success((data) ->
+      $log.log 'Made new workout'
+      user_workouts.workouts.push(data)
+    ).error((data) ->
+      $log.log 'Workout create error'
+      return
+    )
+    
   @save = (data) ->
     $log.log "data.url = " + data.url
     $log.log "Saving " + JSON.stringify(data)
@@ -36,6 +46,7 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
       $log.log "Error"
       return
     )
+    
   @delete = (data) ->
     $log.log "Deleting" + JSON.stringify(data)
     $http.delete('/resistance_exercises/' + data.id).success((data) ->
@@ -45,6 +56,7 @@ app.controller 'ResistanceWorkoutsController', ['$http', '$log', ($http, $log) -
       $log.log "Error"
       return
     )
+    
   @create = ->
     $log.log 'Posting'
     $http.post('/resistance_exercises.json', '{"name":""}').success((data) ->
