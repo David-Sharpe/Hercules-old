@@ -1,5 +1,3 @@
-#require 'JSON'
-
 class ResistanceWorkoutsController < ApplicationController
   protect_from_forgery with: :null_session
   before_action :require_user_id
@@ -11,16 +9,18 @@ class ResistanceWorkoutsController < ApplicationController
   end
   
   def show
-    render json: (ResistanceWorkout.find_by id:params[:id], user_id: params[:user_id])
+    render json: (ResistanceWorkout.find_by id: params[:id], user_id: params[:user_id])
   end
   
   def create
-    workout = ResistanceWorkout.new(params[:user_id])
-    render json: workout
+    workout = ResistanceWorkout.new(user_id: params[:user_id])
+    render json: workout if workout.save
   end
   
   def destroy
-    
+    workout = ResistanceWorkout.find_by(id: params[id], user_id: params[:user_id])
+    workout.destroy
+    head 204
   end
   
 
