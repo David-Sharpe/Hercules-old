@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'haml'
-gem 'haml-rails'
+gem 'haml', '~> 4.0'
+gem 'haml-rails', '~> 0.9'
 gem 'foundation-rails', '~> 5.5.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

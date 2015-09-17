@@ -251,8 +251,8 @@ DEPENDENCIES
   devise
   foundation-rails (~> 5.5.2)
   gon (~> 6.0)
-  haml
-  haml-rails
+  haml (~> 4.0)
+  haml-rails (~> 0.9)
   jbuilder (~> 2.0)
   jquery-rails
   pg
