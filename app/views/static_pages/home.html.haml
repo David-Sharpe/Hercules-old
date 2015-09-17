@@ -1,4 +1,4 @@
-%html{'ng-app'=>'Login'}
+%html{ng:{app:'Login'}}
   %head
     = javascript_include_tag "login.js"
 		
@@ -7,7 +7,7 @@
   %p
     Find me in app/views/static_pages/home.html.haml
   
-  = link_to("Resistance Exercises", "exercise_editor/resistance")
+  = link_to("Resistance Exercises", "exercise_editor/resistance", class: 'button')
 
-  %div{ng_controller: 'LoginController as login'}
+  %div{'ng-controller': 'LoginController as login'}
     {{login.x}}

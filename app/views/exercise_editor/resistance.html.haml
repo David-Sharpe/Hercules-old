@@ -1,33 +1,32 @@
-%html{'ng-app'=>'ResistanceExercise'}
+%html{'ng-app': 'ResistanceExercise'}
   %head
     = javascript_include_tag "resistance_exercises.js"
 	
   %body
     %h1 Listing resistance_exercises
 
-    %form{name: 'resistanceForm', 'ng-controller' => 'ResistanceWorkoutsController as resistanceWorkout',
-    :novalidate => true}
-      %select{'name' => 'selected_workout', 'ng-model'=>'resistanceWorkout.selected_workout', 'ng-options' => 'workout.id for workout in resistanceWorkout.workouts track by workout.id', 'ng-change' => 'resistanceWorkout.load_workout()'}
-      = submit_tag 'New Workout', 'ng-click' => 'resistanceWorkout.create_workout()'
+    %form{name: 'resistanceForm', 'ng-controller': 'ResistanceWorkoutsController as resistanceWorkout', novalidate: true}
+      %select{'name': 'selected_workout', 'ng-model': 'resistanceWorkout.selected_workout', 'ng-options': 'workout.id for workout in resistanceWorkout.workouts track by workout.id', 'ng-change': 'resistanceWorkout.load_workout()'}
+      = submit_tag 'New Workout', 'ng-click': 'resistanceWorkout.create_workout()'
       %div{id: headers, class: "header"}  
         Completed Exercise Weight Units Reps Sets
-      %div{'ng-repeat' => 'exercise in resistanceWorkout.exercises', class: 'row'}
+      %div{'ng-repeat': 'exercise in resistanceWorkout.exercises', class: 'row'}
         .completed
-          = check_box_tag 'completed', false, false, 'ng-model' => 'exercise.completed'
+          = check_box_tag 'completed', false, false, 'ng-model': 'exercise.completed'
         .cell
-          %input{'ng-model' => 'exercise.name'}
+          %input{'ng-model': 'exercise.name'}
         .cell
-          %input{'ng-model' => 'exercise.resistance', required: true}
+          %input{'ng-model': 'exercise.resistance', required: true}
         .cell
-          %input{'ng-model' => 'exercise.unit'}
+          %input{'ng-model': 'exercise.unit'}
         .cell
-          %input{'ng-model' => 'exercise.repetitions'}
+          %input{'ng-model': 'exercise.repetitions'}
         .cell
-          %input{'ng-model' => 'exercise.sets'}
+          %input{'ng-model': 'exercise.sets'}
         .cell
-          = submit_tag 'save', 'ng-click' => 'resistanceWorkout.save(exercise)'
+          = submit_tag 'save', 'ng-click': 'resistanceWorkout.save(exercise)'
         .cel
-          = submit_tag 'delete', 'ng-click' => 'resistanceWorkout.delete(exercise)'
+          = submit_tag 'delete', 'ng-click': 'resistanceWorkout.delete(exercise)'
       
       .new
-        = submit_tag 'new', 'ng-click' => 'resistanceWorkout.create()'  
+        = submit_tag 'new', 'ng-click': 'resistanceWorkout.create()'  
