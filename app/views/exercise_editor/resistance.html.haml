@@ -7,26 +7,26 @@
 
     %form{name: 'resistanceForm', 'ng-controller': 'ResistanceWorkoutsController as resistanceWorkout', novalidate: true}
       %select{'name': 'selected_workout', 'ng-model': 'resistanceWorkout.selected_workout', 'ng-options': 'workout.id for workout in resistanceWorkout.workouts track by workout.id', 'ng-change': 'resistanceWorkout.load_workout()'}
-      = submit_tag 'New Workout', 'ng-click': 'resistanceWorkout.create_workout()'
+      = link_to('New Workout','#', 'ng-click': 'resistanceWorkout.create_workout()', 'class': 'button medium')
       %div{id: headers, class: "header"}  
         Completed Exercise Weight Units Reps Sets
       %div{'ng-repeat': 'exercise in resistanceWorkout.exercises', class: 'row'}
-        .completed
+        %dinv{class: 'small-1 columns'}
           = check_box_tag 'completed', false, false, 'ng-model': 'exercise.completed'
-        .cell
+        %div{class: 'small-1 columns'}
           %input{'ng-model': 'exercise.name'}
-        .cell
+        %div{class: 'small-1 columns'}
           %input{'ng-model': 'exercise.resistance', required: true}
-        .cell
+        %div{class: 'small-1 columns'}
           %input{'ng-model': 'exercise.unit'}
-        .cell
+        %div{class: 'small-1 columns'}
           %input{'ng-model': 'exercise.repetitions'}
-        .cell
+        %div{class: 'small-1 columns'}
           %input{'ng-model': 'exercise.sets'}
-        .cell
-          = submit_tag 'save', 'ng-click': 'resistanceWorkout.save(exercise)'
-        .cel
-          = submit_tag 'delete', 'ng-click': 'resistanceWorkout.delete(exercise)'
+        %div{class: 'small-1 columns'}
+          = link_to('save', '#', 'ng-click': 'resistanceWorkout.save(exercise)', 'class': 'button tiny')
+        %div{class: 'small-1 columns'}
+          = link_to('delete', '#', 'ng-click': 'resistanceWorkout.delete(exercise)', 'class': 'button tiny')
       
       .new
         = submit_tag 'new', 'ng-click': 'resistanceWorkout.create()'  
