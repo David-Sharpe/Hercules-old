@@ -40,3 +40,6 @@ build/
 
 #Mac stuff
 .DS_Store
+
+#Pow settings
+.powenv
