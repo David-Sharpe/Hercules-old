@@ -1,21 +1,29 @@
 %html{'ng-app': 'ResistanceExercise'}
   %head
-    = javascript_include_tag "resistance_exercises.js"
 	
   %body
     %h1 Listing resistance exercises
 
     %form{name: 'resistanceForm', 'ng-controller': 'ResistanceWorkoutsController as resistanceWorkout', novalidate: true}
-      %button{'class': 'button dropdown', 'data-dropdown': 'drop', 'aria-controls':"drop", 'aria-expanded':false}Workout
-      %ul{'id': 'drop', 'data-dropdown-content class': 'f-dropdown', role:'menu', 'aria-hidden':false, tabindex:"-1"}
-        %li{'ng-repeat': 'workout in resistanceWorkout.workouts'}
-          %a{'href': '#', 'ng-click': 'resistanceWorkout.load_workout(workout)'} {{workout.id}}
       .row
-        .large-4.small-1
+        .small-12.columns
+          = link_to('Add Workout', '#', 'ng-click': 'resistanceWorkout.create_workout()', 'class': 'button expand')
+      .row
+        .small-12.columns
           %select{'name': 'selected_workout', 'ng-model': 'resistanceWorkout.selected_workout', 'ng-options': 'workout.id for workout in resistanceWorkout.workouts track by workout.id', 'ng-change': 'resistanceWorkout.load_workout()'}
-      = link_to('New Workout','#', 'ng-click': 'resistanceWorkout.create_workout()', 'class': 'button medium')
-      %div{id: headers, class: "header"}  
-        Completed Exercise Weight Units Reps Sets
+      .row.header
+        .small-1.columns
+          Completed
+        .small-2.columns
+          Exercise
+        .small-2.columns
+          Weight
+        .small-2.columns
+          Units
+        .small-2.columns
+          Reps
+        .small-2.end.columns
+          Sets
       .row{'ng-repeat': 'exercise in resistanceWorkout.exercises'}
         .small-1.columns
           .switch
@@ -32,11 +40,12 @@
         .small-1.columns
           %input{'ng-model': 'exercise.sets', 'type': 'number'}
         .small-2.columns
-          = link_to('save', '#', 'ng-click': 'resistanceWorkout.save(exercise)', 'class': 'button large')
+          = link_to('save', '#', 'ng-click': 'resistanceWorkout.save(exercise)', 'class': 'button expand')
         .small-2.columns.end
-          %button{'ng-click': 'resistanceWorkout.delete(exercise)'}
-          
-          / = link_to('delete', '#', 'ng-click': 'resistanceWorkout.delete(exercise)', 'class': 'button tiny')
-            
-      .new
-        = submit_tag 'new', 'ng-click': 'resistanceWorkout.create()'  
+          = link_to('delete', '#', 'ng-click': 'resistanceWorkout.delete(exercise)', 'class': 'button expand')
+
+      .row
+        .small-12.columns
+          = link_to('Add Exercise', '#,', 'ng-click': 'resistanceWorkout.create()', class: 'button expand')
+    
+    = javascript_include_tag "resistance_exercises.js"
