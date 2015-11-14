@@ -21,33 +21,8 @@
   display: table;
 }
 
-.cell {
-  display: inline;
-  width: 100px;
-  border: none;
-}
-
-.completed {
-  display: inline;
-}
-
-.new {
-  float: left;
-  display: inline;
-}
-
-.row {
-  display: table;
-  float: left;
-}
-
-.row input {
-  display: inline;
-  float: left;
-}
-
 .row:nth-child(even) {
-  background: blue;
+  background: Linen;
 }
 
 .row:nth-child(odd) {
