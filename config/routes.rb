@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   #constraints subdomain: 'api.hercules' do
   resources :resistance_exercises, except: [:new, :edit]
   resources :resistance_workouts, except: [:new, :edit]
+  resources :workout_templates, except: [:new, :edit]
   #end
   
   devise_for :users

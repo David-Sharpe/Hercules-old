@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20151121190931) do
 
   create_table "resistance_workouts", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "exercise_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "resistance_workouts", ["exercise_id"], name: "index_resistance_workouts_on_exercise_id"
   add_index "resistance_workouts", ["user_id"], name: "index_resistance_workouts_on_user_id"
 
   create_table "users", force: :cascade do |t|
