@@ -7,7 +7,7 @@ class WorkoutTemplatesController < ApplicationController
   end
   
   def show
-    render json: (WorkoutTemplate.where params[:user_id])
+    render json: (WorkoutTemplate.where user_id: params[:user_id], id: params[:id])
   end
   
   def create
