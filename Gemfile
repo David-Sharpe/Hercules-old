@@ -43,6 +43,8 @@ end
 group :development, :test do
   #gem 'pry-debugger'
   gem 'rspec-rails', '~> 3.0'
+  gem 'simplecov', '~> 0.11'
+  gem 'parallel_tests', '~> 2.4'
 end
 
 group :test do
