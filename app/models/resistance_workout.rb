@@ -1,4 +1,4 @@
-class ResistanceWorkout < ActiveRecord::Base
+class ResistanceWorkout < ApplicationRecord
   belongs_to :user
   has_many :exercises
   

@@ -1,18 +1,17 @@
+# FrozenString:Literal
 source 'https://rubygems.org'
 
-gem 'haml', '~> 4.0'
-gem 'haml-rails', '~> 0.9'
-gem 'foundation-rails', '~> 5.5.2'
+# gem 'haml', '~> 4.0'
+gem 'haml-rails', '~> 1.0'
+gem 'foundation-rails', '~> 6.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', ' 4.2.3'
+gem 'rails', ' 5.1.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -25,17 +24,17 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-gem 'devise'
+gem 'devise', '~> 4.3'
 
 gem 'gon', '~> 6.0'
 
 gem 'angularjs-rails'
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.5'
   gem 'sqlite3'
   gem 'spring'
-  gem 'better_errors'
+  gem 'better_errors', '2.3'
   gem 'binding_of_caller'
 end
 
@@ -63,7 +62,3 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
